@@ -8,73 +8,91 @@ struct Node {
 
 struct Node *head = NULL, *tail = NULL;
 
-// Insert at beginning
-void insertBeg(int value) {
+// Function to create a new node
+struct Node* createNode(int value) {
     struct Node *newNode = (struct Node*) malloc(sizeof(struct Node));
     newNode->data = value;
     newNode->prev = NULL;
-    newNode->next = head;
-    if (head != NULL)
+    newNode->next = NULL;
+    return newNode;
+}
+
+// Insert at beginning
+void insertAtBeginning(int value) {
+    struct Node *newNode = createNode(value);
+
+    if (head == NULL) {
+        head = tail = newNode;
+    } else {
+        newNode->next = head;
         head->prev = newNode;
-    else
-        tail = newNode;
-    head = newNode;
+        head = newNode;
+    }
+
     printf("%d inserted at beginning\n", value);
 }
 
 // Insert at end
-void insertEnd(int value) {
-    struct Node *newNode = (struct Node*) malloc(sizeof(struct Node));
-    newNode->data = value;
-    newNode->next = NULL;
-    newNode->prev = tail;
-    if (tail != NULL)
+void insertAtEnd(int value) {
+    struct Node *newNode = createNode(value);
+
+    if (tail == NULL) {
+        head = tail = newNode;
+    } else {
         tail->next = newNode;
-    else
-        head = newNode;
-    tail = newNode;
+        newNode->prev = tail;
+        tail = newNode;
+    }
+
     printf("%d inserted at end\n", value);
 }
 
 // Delete from beginning
-void deleteBeg() {
+void deleteFromBeginning() {
     if (head == NULL) {
         printf("List is empty\n");
         return;
     }
-    printf("%d deleted from beginning\n", head->data);
+
     struct Node *temp = head;
+    printf("%d deleted from beginning\n", temp->data);
+
     head = head->next;
     if (head != NULL)
         head->prev = NULL;
     else
         tail = NULL;
+
     free(temp);
 }
 
 // Delete from end
-void deleteEnd() {
+void deleteFromEnd() {
     if (tail == NULL) {
         printf("List is empty\n");
         return;
     }
-    printf("%d deleted from end\n", tail->data);
+
     struct Node *temp = tail;
+    printf("%d deleted from end\n", temp->data);
+
     tail = tail->prev;
     if (tail != NULL)
         tail->next = NULL;
     else
         head = NULL;
+
     free(temp);
 }
 
-// Display from beginning
-void displayFromBeg() {
-    struct Node *temp = head;
-    if (temp == NULL) {
+// Display list from beginning
+void displayFromBeginning() {
+    if (head == NULL) {
         printf("List is empty\n");
         return;
     }
+
+    struct Node *temp = head;
     printf("List from beginning: ");
     while (temp != NULL) {
         printf("%d ", temp->data);
@@ -83,13 +101,14 @@ void displayFromBeg() {
     printf("\n");
 }
 
-// Display from end
+// Display list from end
 void displayFromEnd() {
-    struct Node *temp = tail;
-    if (temp == NULL) {
+    if (tail == NULL) {
         printf("List is empty\n");
         return;
     }
+
+    struct Node *temp = tail;
     printf("List from end: ");
     while (temp != NULL) {
         printf("%d ", temp->data);
@@ -98,57 +117,67 @@ void displayFromEnd() {
     printf("\n");
 }
 
-// Count nodes
-void count() {
-    int c = 0;
+// Count total nodes
+void countNodes() {
+    int count = 0;
     struct Node *temp = head;
     while (temp != NULL) {
-        c++;
+        count++;
         temp = temp->next;
     }
-    printf("Total nodes: %d\n", c);
+    printf("Total nodes: %d\n", count);
 }
 
 int main() {
     int choice, value;
+
     while (1) {
-        printf("\n--- Doubly Linked List Menu ---\n");
-        printf("1. Insert at beginning\n2. Insert at end\n3. Delete from beginning\n4. Delete from end\n");
-        printf("5. Display from beginning\n6. Display from end\n7. Count nodes\n8. Exit\n");
-        printf("Enter choice: ");
+        printf("\n--- DOUBLY LINKED LIST MENU ---\n");
+        printf("1. Insert at Beginning\n");
+        printf("2. Insert at End\n");
+        printf("3. Delete from Beginning\n");
+        printf("4. Delete from End\n");
+        printf("5. Display from Beginning\n");
+        printf("6. Display from End\n");
+        printf("7. Count Nodes\n");
+        printf("8. Exit\n");
+        printf("Enter your choice: ");
         scanf("%d", &choice);
 
         switch (choice) {
             case 1:
                 printf("Enter value: ");
                 scanf("%d", &value);
-                insertBeg(value);
+                insertAtBeginning(value);
                 break;
             case 2:
                 printf("Enter value: ");
                 scanf("%d", &value);
-                insertEnd(value);
+                insertAtEnd(value);
                 break;
             case 3:
-                deleteBeg();
+                deleteFromBeginning();
                 break;
             case 4:
-                deleteEnd();
+                deleteFromEnd();
                 break;
             case 5:
-                displayFromBeg();
+                displayFromBeginning();
                 break;
             case 6:
                 displayFromEnd();
                 break;
             case 7:
-                count();
+                countNodes();
                 break;
             case 8:
+                printf("Exiting program...\n");
                 exit(0);
             default:
-                printf("Invalid choice!\n");
+                printf("Invalid choice! Please try again.\n");
         }
     }
+
     return 0;
 }
+
