@@ -113,7 +113,7 @@ int main() {
                 break;
 
             case 5:
-                printf("Exiting program...\n");
+                printf("Exiting program..\n");
                 return 0;
 
             default:
