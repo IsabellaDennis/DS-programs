@@ -3,10 +3,10 @@
 #define MAX 10
 
 // Display a set using its bit array
-void displaySet(int set[], int n, char universal[]) {
+void displaySet(int set[], int n, int universal[]) {
     printf("{ ");
     for (int i = 0; i < n; i++)
-        if (set[i]) printf("%c ", universal[i]);
+        if (set[i]) printf("%d ", universal[i]);
     printf("}\n");
 }
 
@@ -26,14 +26,14 @@ void differenceSet(int A[], int B[], int C[], int n) {
 }
 
 // Input a set
-void inputSet(int set[], int n, char universal[], char setName) {
+void inputSet(int set[], int n, int universal[], char setName) {
     int size;
     printf("Enter size of set %c: ", setName);
     scanf("%d", &size);
     printf("Enter elements of set %c:\n", setName);
     for (int i = 0; i < size; i++) {
-        char x;
-        scanf(" %c", &x);
+        int x;
+        scanf("%d", &x);
         for (int j = 0; j < n; j++)
             if (universal[j] == x) set[j] = 1;
     }
@@ -44,9 +44,9 @@ int main() {
     printf("Enter size of universal set (max %d): ", MAX);
     scanf("%d", &n);
 
-    char universal[MAX];
+    int universal[MAX];
     printf("Enter elements of universal set:\n");
-    for (int i = 0; i < n; i++) scanf(" %c", &universal[i]);
+    for (int i = 0; i < n; i++) scanf("%d", &universal[i]);
 
     int A[MAX] = {0}, B[MAX] = {0}, C[MAX] = {0};
 
@@ -65,4 +65,5 @@ int main() {
 
     return 0;
 }
+
 
