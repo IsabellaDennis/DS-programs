@@ -1,55 +1,41 @@
 #include <stdio.h>
-
-#define INF 9999
 #define MAX 10
 
 int main() {
-    int G[MAX][MAX];
-    int visited[MAX] = {0};
-    int V;
-    int i, j, no_edge = 0, total = 0;
+    int n, cost[MAX][MAX], visited[MAX] = {0};
+    int edges = 0, totalCost = 0, a, b, min;
 
     printf("Enter number of vertices: ");
-    scanf("%d", &V);
+    scanf("%d", &n);
 
-    printf("Enter the adjacency matrix (0 if no edge):\n");
-    for (i = 0; i < V; i++) {
-        for (j = 0; j < V; j++) {
-            scanf("%d", &G[i][j]);
-            if (G[i][j] == 0)
-                G[i][j] = INF; // Replace 0 with INF (no connection)
-        }
-    }
+    printf("Enter adjacency matrix (0 for no edge):\n");
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n;j++)
+            scanf("%d",&cost[i][j]);
 
-    // Start from the first vertex
-    visited[0] = 1;
+    visited[0] = 1;  // start from vertex 0
 
-    printf("\nEdges in Minimum Spanning Tree:\n");
+    printf("\nEdges in MST:\n");
 
-    // Repeat until we have V-1 edges
-    while (no_edge < V - 1) {
-        int min = INF;
-        int a = -1, b = -1;
+    while(edges < n-1) {
+        min = 0; a = b = -1;
 
-        for (i = 0; i < V; i++) {
-            if (visited[i]) { // vertex already in MST
-                for (j = 0; j < V; j++) {
-                    if (!visited[j] && G[i][j] < min) {
-                        min = G[i][j];
-                        a = i;
-                        b = j;
+        // Find smallest edge from visited to unvisited
+        for(int i=0;i<n;i++)
+            if(visited[i])
+                for(int j=0;j<n;j++)
+                    if(!visited[j] && cost[i][j] != 0 && (min == 0 || cost[i][j] < min)) {
+                        min = cost[i][j]; a = i; b = j;
                     }
-                }
-            }
-        }
 
-        printf("%d - %d : %d\n", a, b, min);
-        total += min;
-        visited[b] = 1;
-        no_edge++;
+        if(a != -1 && b != -1) {
+            printf("%d -> %d  cost = %d\n", a, b, min);
+            visited[b] = 1;
+            totalCost += min;
+            edges++;
+        }
     }
 
-    printf("\nTotal Minimum Cost = %d\n", total);
-
+    printf("\nMinimum cost = %d\n", totalCost);
     return 0;
 }

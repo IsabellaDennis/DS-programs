@@ -144,7 +144,7 @@ int main() {
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
-        switch (choice) {
+        switch(choice) {
             case 1:
                 printf("Enter value: ");
                 scanf("%d", &value);
