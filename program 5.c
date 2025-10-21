@@ -28,16 +28,6 @@ struct Node* insert(struct Node* root, int data) {
     return root;
 }
 
-// Delete all nodes (to free memory)
-struct Node* deleteTree(struct Node* root) {
-    if (root == NULL)
-        return NULL;
-    deleteTree(root->left);
-    deleteTree(root->right);
-    free(root);
-    return NULL;
-}
-
 // Traversals
 void inorder(struct Node* root) {
     if (root != NULL) {
@@ -63,6 +53,50 @@ void postorder(struct Node* root) {
     }
 }
 
+// Delete entire tree
+struct Node* deleteTree(struct Node* root) {
+    if (root == NULL)
+        return NULL;
+    deleteTree(root->left);
+    deleteTree(root->right);
+    free(root);
+    return NULL;
+}
+
+// Delete a node by value (replace internal node with rightmost leaf)
+struct Node* deleteNode(struct Node* root, int key) {
+    if (!root) return NULL;
+
+    if (root->data == key) {
+        // Leaf node
+        if (!root->left && !root->right) {
+            free(root);
+            return NULL;
+        }
+        // Replace with rightmost leaf in left subtree if exists
+        if (root->left) {
+            struct Node* temp = root->left;
+            while (temp->right) temp = temp->right;
+            root->data = temp->data;
+            root->left = deleteNode(root->left, temp->data);
+        }
+        // If no left, replace with leftmost leaf in right subtree
+        else if (root->right) {
+            struct Node* temp = root->right;
+            while (temp->left) temp = temp->left;
+            root->data = temp->data;
+            root->right = deleteNode(root->right, temp->data);
+        }
+        return root;
+    }
+
+    // Recurse left and right
+    root->left = deleteNode(root->left, key);
+    root->right = deleteNode(root->right, key);
+
+    return root;
+}
+
 int main() {
     struct Node* root = NULL;
     int choice, data;
@@ -73,8 +107,9 @@ int main() {
         printf("2. Inorder Traversal\n");
         printf("3. Preorder Traversal\n");
         printf("4. Postorder Traversal\n");
-        printf("5. Delete Entire Tree\n");
-        printf("6. Exit\n");
+        printf("5. Delete Node by Value\n");
+        printf("6. Delete Entire Tree\n");
+        printf("7. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -100,10 +135,15 @@ int main() {
                 printf("\n");
                 break;
             case 5:
+                printf("Enter value to delete: ");
+                scanf("%d", &data);
+                root = deleteNode(root, data);
+                break;
+            case 6:
                 root = deleteTree(root);
                 printf("Tree deleted.\n");
                 break;
-            case 6:
+            case 7:
                 exit(0);
             default:
                 printf("Invalid choice.\n");
@@ -111,3 +151,4 @@ int main() {
     }
     return 0;
 }
+
