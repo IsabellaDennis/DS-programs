@@ -8,22 +8,22 @@ struct Node {
 };
 
 // Create new node
-struct Node* createNode(int data) {
+struct Node* createNode(int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->data = data;
+    newNode->data = value;
     newNode->left = newNode->right = NULL;
     return newNode;
 }
 
 // Insert node (simple — left first, then right)
-struct Node* insert(struct Node* root, int data) {
+struct Node* insert(struct Node* root, int value) {
     if (root == NULL)
-        return createNode(data);
+        return createNode(value);
 
     if (root->left == NULL)
-        root->left = insert(root->left, data);
+        root->left = insert(root->left, value);
     else
-        root->right = insert(root->right, data);
+        root->right = insert(root->right, value);
 
     return root;
 }
@@ -66,7 +66,7 @@ struct Node* deleteTree(struct Node* root) {
 
 int main() {
     struct Node* root = NULL;
-    int choice, data;
+    int choice, value;
 
     while (1) {
         printf("\n--- Binary Tree Menu ---\n");
@@ -81,9 +81,9 @@ int main() {
 
         switch (choice) {
             case 1:
-                printf("Enter data: ");
-                scanf("%d", &data);
-                root = insert(root, data);
+                printf("Enter value: ");
+                scanf("%d", &value);
+                root = insert(root, value);
                 break;
             case 2:
                 printf("Inorder: ");
@@ -112,5 +112,6 @@ int main() {
     }
     return 0;
 }
+
 
 
