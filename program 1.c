@@ -1,3 +1,5 @@
+//Single Linked List operations- Creation, Insertion, Deletion, Traversal, Count. 
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -122,3 +124,42 @@ int main() {
     }
     return 0;
 }
+
+
+
+/* Sample Output:
+
+--- Singly Linked List Menu ---
+1. Insert Node
+2. Delete Node
+3. Display List
+4. Count Nodes
+5. Exit
+Enter your choice: 1
+Enter value: 10
+
+--- Singly Linked List Menu ---
+Enter your choice: 1
+Enter value: 20
+
+--- Singly Linked List Menu ---
+Enter your choice: 3
+List: 10 -> 20 -> NULL
+
+--- Singly Linked List Menu ---
+Enter your choice: 4
+Total nodes = 2
+
+--- Singly Linked List Menu ---
+Enter your choice: 2
+Enter value to delete: 10
+
+--- Singly Linked List Menu ---
+Enter your choice: 3
+List: 20 -> NULL
+
+--- Singly Linked List Menu ---
+Enter your choice: 5
+
+*/
+

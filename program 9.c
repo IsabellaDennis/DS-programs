@@ -1,3 +1,5 @@
+//Prim’s Algorithm for finding the minimum cost spanning tree. 
+
 #include <stdio.h>
 #define MAX 10
 
@@ -39,3 +41,22 @@ int main() {
     printf("\nMinimum cost = %d\n", totalCost);
     return 0;
 }
+
+
+
+/*
+--- Sample Output for Prim's MST ---
+Enter number of vertices: 4
+Enter adjacency matrix (0 for no edge):
+0 2 0 6
+2 0 3 8
+0 3 0 0
+6 8 0 0
+
+Edges in MST:
+0 -> 1  cost = 2
+1 -> 2  cost = 3
+0 -> 3  cost = 6
+
+Minimum cost = 11
+*/

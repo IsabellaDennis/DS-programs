@@ -1,3 +1,5 @@
+//Set operations (Union, Intersection and Difference) using Bit String.
+
 #include <stdio.h>
 
 #define MAX 10
@@ -67,3 +69,19 @@ int main() {
 }
 
 
+/*
+--- Sample Output for Set Operations ---
+Enter size of universal set (max 10): 5
+Enter elements of universal set:
+1 2 3 4 5
+Enter size of set A: 3
+Enter elements of set A:
+1 3 5
+Enter size of set B: 2
+Enter elements of set B:
+2 3
+
+A ∪ B = { 1 2 3 5 }
+A ∩ B = { 3 }
+A - B = { 1 5 }
+*/

@@ -1,3 +1,6 @@
+/*Binary Search Trees- Creation, Insertion, Deletion, Find, Traversal-Inorder traversal, 
+Preorder Traversal, Postorder traversal.*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -159,3 +162,35 @@ int main() {
     }
     return 0;
 }
+
+
+/*
+--- Sample Output for Binary Search Tree ---
+Enter choice: 1
+Enter value to insert: 10
+Enter choice: 1
+Enter value to insert: 5
+Enter choice: 1
+Enter value to insert: 15
+
+Enter choice: 4
+Inorder: 5 10 15 
+Enter choice: 5
+Preorder: 10 5 15 
+Enter choice: 6
+Postorder: 5 15 10 
+
+Enter choice: 3
+Enter value to search: 5
+5 found in the tree.
+
+Enter choice: 2
+Enter value to delete: 10
+
+Enter choice: 4
+Inorder: 5 15 
+
+Enter choice: 7
+Exiting program..
+*/
+

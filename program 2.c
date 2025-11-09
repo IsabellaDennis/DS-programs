@@ -1,3 +1,5 @@
+//Singly Linked Stack-- Creation, Insertion, Deletion, Traversal, Count. 
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -86,3 +88,42 @@ int main() {
     }
     return 0;
 }
+
+
+/* Sample Output:
+
+--- Stack Menu ---
+1. Push
+2. Pop
+3. Display
+4. Count
+5. Exit
+Enter choice: 1
+Enter value to push: 10
+10 pushed to stack
+
+--- Stack Menu ---
+Enter choice: 1
+Enter value to push: 20
+20 pushed to stack
+
+--- Stack Menu ---
+Enter choice: 3
+Stack elements: 20 10
+
+--- Stack Menu ---
+Enter choice: 4
+Total elements in stack: 2
+
+--- Stack Menu ---
+Enter choice: 2
+20 popped from stack
+
+--- Stack Menu ---
+Enter choice: 3
+Stack elements: 10
+
+--- Stack Menu ---
+Enter choice: 5
+
+*/

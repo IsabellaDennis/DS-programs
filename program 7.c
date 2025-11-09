@@ -1,3 +1,5 @@
+//Disjoint Sets and the associated operations (create, union, find).
+
 #include <stdio.h>
 
 #define MAX 20   // Maximum number of elements
@@ -115,3 +117,32 @@ int main() {
 
     return 0;
 }
+
+
+
+/*
+--- Sample Output for Disjoint Set Operations ---
+Enter number of elements (max 20): 5
+Enter 5 elements: 10 20 30 40 50
+Disjoint sets created.
+
+--- Disjoint Set Operations ---
+Enter your choice: 1
+Enter two elements to union: 10 20
+Union done: 10 and 20 are now in the same set.
+
+Enter your choice: 1
+Enter two elements to union: 30 40
+Union done: 30 and 40 are now in the same set.
+
+Enter your choice: 2
+Enter element to find its set representative: 20
+Representative of 20 is: 10
+
+Enter your choice: 3
+Element: 10 20 30 40 50 
+Parent : 10 10 30 30 50 
+
+Enter your choice: 4
+Exiting...
+*/

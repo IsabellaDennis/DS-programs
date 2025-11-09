@@ -1,3 +1,6 @@
+/*Binary Tree-Creation, Insertion, Deletion, Traversal-Inorder traversal, Preorder 
+Traversal, Postorder traversal. */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -115,3 +118,22 @@ int main() {
 
 
 
+/*
+--- Sample Output for Binary Tree ---
+Enter your choice: 1
+Enter value: 10
+Enter your choice: 1
+Enter value: 20
+Enter your choice: 1
+Enter value: 30
+Enter your choice: 2
+Inorder: 20 10 30
+Enter your choice: 3
+Preorder: 10 20 30
+Enter your choice: 4
+Postorder: 20 30 10
+Enter your choice: 5
+Entire tree deleted successfully.
+Enter your choice: 6
+Exiting program..
+*/

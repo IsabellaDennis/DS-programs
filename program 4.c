@@ -1,3 +1,5 @@
+//Circular Queue- Creation, Insertion, Deletion, Display, Count number of elements. 
+
 #include <stdio.h>
 
 #define SIZE 5   // Size of the circular queue
@@ -121,4 +123,24 @@ int main() {
         }
     }
 }
+
+
+
+/*
+--- Sample Output for Circular Queue ---
+Enter your choice: 1
+Enter value to insert: 1
+1 inserted into the queue
+Enter your choice: 1
+Enter value to insert: 2
+2 inserted into the queue
+Enter your choice: 3
+Queue elements: 1 2
+Enter your choice: 2
+1 deleted from the queue
+Enter your choice: 4
+Total elements: 1
+Enter your choice: 5
+Exiting program..
+*/
 

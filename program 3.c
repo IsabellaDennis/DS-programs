@@ -1,3 +1,8 @@
+/*Doubly Linked List- Creation, Insert operations through beginning, Insert operations 
+through end, Delete operations from beginning, Delete operations from end, Traversal 
+from beginning, Traversal from end, Display from both side, Count number of 
+elements.*/ 
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -181,3 +186,28 @@ int main() {
     return 0;
 }
 
+
+/*
+--- Sample Output for Doubly Linked List ---
+Enter your choice: 1
+Enter value: 50
+50 inserted at beginning
+Enter your choice: 1
+Enter value: 30
+30 inserted at beginning
+Enter your choice: 2
+Enter value: 70
+70 inserted at end
+Enter your choice: 5
+List from beginning: 30 50 70 
+Enter your choice: 6
+List from end: 70 50 30 
+Enter your choice: 3
+30 deleted from beginning
+Enter your choice: 4
+70 deleted from end
+Enter your choice: 7
+Total nodes: 1
+Enter your choice: 8
+Exiting program...
+*/
